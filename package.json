@@ -1,10 +1,9 @@
 {
   "name": "h3-typebox",
   "version": "0.0.0",
-  "description": "",
+  "description": "JSON schema validation for h3, using typebox & ajv",
   "repository": "kevinmarrec/h3-typebox",
   "license": "MIT",
-  "sideEffects": false,
   "type": "module",
   "exports": {
     ".": {

@@ -5,7 +5,7 @@
 [![Github Actions][github-actions-src]][github-actions-href]
 [![Codecov][codecov-src]][codecov-href]
 
-> Package description
+> JSON schema validation for [h3](https://github.com/unjs/h3), using [typebox](https://github.com/sinclairzx81/typebox) & [ajv](https://github.com/ajv-validator/ajv).
 
 ## Usage
 
