@@ -7,32 +7,40 @@
 
 > JSON schema validation for [h3](https://github.com/unjs/h3), using [typebox](https://github.com/sinclairzx81/typebox) & [ajv](https://github.com/ajv-validator/ajv).
 
-## Usage
-
-Install package:
+## Install
 
 ```sh
-# npm
+# Using npm
 npm install h3-typebox
 
-# yarn
+# Using yarn
 yarn install h3-typebox
 
-# pnpm
+# Using pnpm
 pnpm install h3-typebox
 ```
 
-Import:
+## Usage
 
 ```js
-// ESM
-import { } from 'h3-typebox'
+import { createServer } from 'http'
+import { createApp } from 'h3'
+import { useValidatedBody, Type } from 'h3-typebox'
 
-// CommonJS
-const { } = require('h3-typebox')
+const app = createApp()
+app.use('/', aynsc (req) => {
+  const body = await useValidatedBody(req, Type.Object({
+    optional: Type.Optional(Type.String()),
+    required: Type.Boolean(),
+  }))
+})
+
+createServer(app).listen(process.env.PORT || 3000)
 ```
 
-## 💻 Development
+See how to define your schema with `Type` on [TypeBox documentation](https://github.com/sinclairzx81/typebox#usage).
+
+## Development 💻 
 
 - Clone this repository
 - Install dependencies using `pnpm install`

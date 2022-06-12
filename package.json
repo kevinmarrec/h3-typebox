@@ -26,15 +26,21 @@
     "test": "vitest run",
     "test:coverage": "pnpm test -- --reporter verbose --coverage"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@sinclair/typebox": "^0.23.5",
+    "ajv": "^8.11.0",
+    "h3": "^0.7.9"
+  },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "latest",
+    "@types/supertest": "latest",
     "c8": "latest",
     "eslint": "latest",
     "standard-version": "latest",
+    "supertest": "latest",
     "typescript": "latest",
     "unbuild": "latest",
     "vitest": "latest"
   },
-  "packageManager": "pnpm@7.0.0"
+  "packageManager": "pnpm@7.2.0"
 }

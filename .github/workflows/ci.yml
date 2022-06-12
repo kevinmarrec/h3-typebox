@@ -23,3 +23,7 @@ jobs:
       - run: pnpm build
       - run: pnpm test:coverage
       - uses: codecov/codecov-action@v3
+      - if: github.event_name == 'push' && startsWith(github.event.head_commit.message, 'chore(release)')
+        run: pnpm publish -q --access public
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
