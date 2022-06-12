@@ -36,7 +36,7 @@ app.use('/', async (req) => {
   }))
 
   // Validate query
-  const body = useValidatedQuery(req, Type.Object({
+  const query = useValidatedQuery(req, Type.Object({
     required: Type.String(),
   }))
 })
