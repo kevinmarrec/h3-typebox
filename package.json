@@ -29,18 +29,18 @@
   "dependencies": {
     "@sinclair/typebox": "^0.23.5",
     "ajv": "^8.11.0",
-    "h3": "^0.7.9"
+    "h3": "^0.7.10"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "latest",
     "@types/supertest": "latest",
     "c8": "latest",
-    "eslint": "latest",
+    "eslint": "^8.18.0",
     "standard-version": "latest",
     "supertest": "latest",
-    "typescript": "latest",
+    "typescript": "^4.7.4",
     "unbuild": "latest",
-    "vitest": "latest"
+    "vitest": "^0.16.0"
   },
   "packageManager": "pnpm@7.2.0"
 }
