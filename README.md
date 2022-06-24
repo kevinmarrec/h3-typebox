@@ -65,7 +65,7 @@ Published under [MIT License](./LICENSE).
 [npm-downloads-src]: https://img.shields.io/npm/dm/h3-typebox?style=flat-square
 [npm-downloads-href]: https://npmjs.com/package/h3-typebox
 
-[github-actions-src]: https://img.shields.io/github/workflow/status/kevinmarrec/h3-typebox/ci/main?style=flat-square
+[github-actions-src]: https://img.shields.io/github/workflow/status/kevinmarrec/h3-typebox/CI
 [github-actions-href]: https://github.com/kevinmarrec/h3-typebox/actions?query=workflow%3Aci
 
 [codecov-src]: https://img.shields.io/codecov/c/gh/kevinmarrec/h3-typebox/main?style=flat-square
