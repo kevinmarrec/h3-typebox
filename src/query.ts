@@ -2,7 +2,7 @@ import type { Static, TSchema } from '@sinclair/typebox'
 import { createError, CompatibilityEvent, useQuery } from 'h3'
 import { useValidator } from './utils'
 
-export function useValidatedQuery<T extends TSchema> (event: CompatibilityEvent, schema: T) {
+export function validateQuery<T extends TSchema> (event: CompatibilityEvent, schema: T) {
   const query = useQuery(event)
   const validate = useValidator().compile(schema)
 
@@ -12,3 +12,7 @@ export function useValidatedQuery<T extends TSchema> (event: CompatibilityEvent,
 
   return query as Static<T>
 }
+
+/** @deprecated Use `validateQuery` */
+/* c8 ignore next */
+export const useValidatedQuery = validateQuery

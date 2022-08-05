@@ -1,9 +1,9 @@
 import supertest, { SuperTest, Test } from 'supertest'
 import { describe, beforeEach, it, expect } from 'vitest'
 import { createApp, App } from 'h3'
-import { useValidatedBody, Type } from '../src'
+import { validateBody, Type } from '../src'
 
-describe('useValidatedBody', () => {
+describe('validateBody', () => {
   let app: App
   let request: SuperTest<Test>
 
@@ -18,7 +18,7 @@ describe('useValidatedBody', () => {
   })
 
   it('returns 200 OK if body matches validation schema', async () => {
-    app.use('/validate', async req => await useValidatedBody(req, bodySchema))
+    app.use('/validate', async req => await validateBody(req, bodySchema))
 
     const res = await request.post('/validate').send({ required: true })
 
@@ -26,7 +26,7 @@ describe('useValidatedBody', () => {
   })
 
   it('throws 400 Bad Request if body does not match validation schema', async () => {
-    app.use('/validate', async req => await useValidatedBody(req, bodySchema))
+    app.use('/validate', async req => await validateBody(req, bodySchema))
 
     const res = await request.post('/validate').send({})
 

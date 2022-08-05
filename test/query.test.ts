@@ -1,9 +1,9 @@
 import supertest, { SuperTest, Test } from 'supertest'
 import { describe, beforeEach, it, expect } from 'vitest'
 import { createApp, App } from 'h3'
-import { useValidatedQuery, Type } from '../src'
+import { validateQuery, Type } from '../src'
 
-describe('useValidatedQuery', () => {
+describe('validateQuery', () => {
   let app: App
   let request: SuperTest<Test>
 
@@ -17,7 +17,7 @@ describe('useValidatedQuery', () => {
   })
 
   it('returns 200 OK if query matches validation schema', async () => {
-    app.use('/validate', req => useValidatedQuery(req, querySchema))
+    app.use('/validate', req => validateQuery(req, querySchema))
 
     const res = await request.get('/validate?required')
 
@@ -25,7 +25,7 @@ describe('useValidatedQuery', () => {
   })
 
   it('throws 400 Bad Request if query does not match validation schema', async () => {
-    app.use('/validate', req => useValidatedQuery(req, querySchema))
+    app.use('/validate', req => validateQuery(req, querySchema))
 
     const res = await request.get('/validate')
 

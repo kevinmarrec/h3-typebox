@@ -25,18 +25,18 @@ pnpm install h3-typebox
 ```js
 import { createServer } from 'http'
 import { createApp } from 'h3'
-import { useValidatedBody, useValidatedQuery, Type } from 'h3-typebox'
+import { validateBody, validateQuery, Type } from 'h3-typebox'
 
 const app = createApp()
 app.use('/', async (req) => {
   // Validate body
-  const body = await useValidatedBody(req, Type.Object({
+  const body = await validateBody(req, Type.Object({
     optional: Type.Optional(Type.String()),
     required: Type.Boolean(),
   }))
 
   // Validate query
-  const query = useValidatedQuery(req, Type.Object({
+  const query = validateQuery(req, Type.Object({
     required: Type.String(),
   }))
 })
