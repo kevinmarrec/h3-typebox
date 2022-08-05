@@ -28,15 +28,15 @@ import { createApp } from 'h3'
 import { validateBody, validateQuery, Type } from 'h3-typebox'
 
 const app = createApp()
-app.use('/', async (req) => {
+app.use('/', async (event) => {
   // Validate body
-  const body = await validateBody(req, Type.Object({
+  const body = await validateBody(event, Type.Object({
     optional: Type.Optional(Type.String()),
     required: Type.Boolean(),
   }))
 
   // Validate query
-  const query = validateQuery(req, Type.Object({
+  const query = validateQuery(event, Type.Object({
     required: Type.String(),
   }))
 })
