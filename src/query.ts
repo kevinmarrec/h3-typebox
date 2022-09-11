@@ -1,5 +1,6 @@
 import type { Static, TSchema } from '@sinclair/typebox'
 import { createError, CompatibilityEvent, useQuery } from 'h3'
+import { betterAjvErrors } from '@apideck/better-ajv-errors'
 import { useValidator } from './utils'
 
 export function validateQuery<T extends TSchema> (event: CompatibilityEvent, schema: T) {
@@ -7,7 +8,8 @@ export function validateQuery<T extends TSchema> (event: CompatibilityEvent, sch
   const validate = useValidator().compile(schema)
 
   if (!validate(query)) {
-    throw createError({ statusCode: 400, statusMessage: `query ${validate.errors[0].message}` })
+    const betterErrors = betterAjvErrors({ schema, data: query, errors: validate.errors, basePath: 'query' })
+    throw createError({ statusCode: 400, statusMessage: betterErrors[0].message })
   }
 
   return query as Static<T>
