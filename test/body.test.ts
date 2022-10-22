@@ -1,6 +1,6 @@
 import supertest, { SuperTest, Test } from 'supertest'
 import { describe, beforeEach, it, expect } from 'vitest'
-import { createApp, App } from 'h3'
+import { createApp, App, toNodeListener, eventHandler } from 'h3'
 import { validateBody, Type } from '../src'
 
 describe('validateBody', () => {
@@ -9,7 +9,7 @@ describe('validateBody', () => {
 
   beforeEach(() => {
     app = createApp({ debug: false })
-    request = supertest(app)
+    request = supertest(toNodeListener(app))
   })
 
   const bodySchema = Type.Object({
@@ -18,15 +18,15 @@ describe('validateBody', () => {
   })
 
   it('returns 200 OK if body matches validation schema', async () => {
-    app.use('/validate', async req => await validateBody(req, bodySchema))
+    app.use('/validate', eventHandler(async req => await validateBody(req, bodySchema)))
 
     const res = await request.post('/validate').send({ required: true })
 
-    expect(res.status).toEqual(200)
+    expect(res.statusCode).toEqual(200)
   })
 
   it('throws 400 Bad Request if body does not match validation schema', async () => {
-    app.use('/validate', async req => await validateBody(req, bodySchema))
+    app.use('/validate', eventHandler(async req => await validateBody(req, bodySchema)))
 
     const res = await request.post('/validate').send({})
 
