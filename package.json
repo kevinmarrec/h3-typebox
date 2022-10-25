@@ -30,7 +30,7 @@
     "@apideck/better-ajv-errors": "^0.3.6",
     "@sinclair/typebox": "^0.24.44",
     "ajv": "^8.11.0",
-    "h3": "^0.7.21"
+    "h3": "^0.8.5"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "latest",
