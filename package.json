@@ -28,10 +28,10 @@
   },
   "dependencies": {
     "@apideck/better-ajv-errors": "^0.3.6",
-    "@sinclair/typebox": "^0.24.44",
+    "@sinclair/typebox": "^0.25.8",
     "ajv": "^8.11.0",
     "ajv-formats": "^2.1.1",
-    "h3": "^0.8.5"
+    "h3": "^0.8.6"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "latest",
