@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://github.com/kevinmarrec/h3-typebox/compare/v0.4.0...v0.5.0) (2022-12-06)
+
+
+### Features
+
+* extended ajv formats ([#6](https://github.com/kevinmarrec/h3-typebox/issues/6)) ([3f3cb3e](https://github.com/kevinmarrec/h3-typebox/commit/3f3cb3e96d442b16e8a49228f2b8214d1957b27c))
+
 ## [0.4.0](https://github.com/kevinmarrec/h3-typebox/compare/v0.3.0...v0.4.0) (2022-10-25)
 
 ## [0.3.0](https://github.com/kevinmarrec/h3-typebox/compare/v0.2.0...v0.3.0) (2022-09-30)
