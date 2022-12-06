@@ -46,7 +46,44 @@ createServer(app).listen(process.env.PORT || 3000)
 
 See how to define your schema with `Type` on [TypeBox documentation](https://github.com/sinclairzx81/typebox#usage).
 
-## Development 💻 
+### Options
+
+You can define a options object on `validateBody` or `validateQuery`. Currently the following options are supported:
+
+- `includeAjvFormats: Boolean`
+
+#### includeAjvFormats
+
+Some formats like `date`, `date-time` or `email` are specified in the current JSONSchema draft, but not included in ajv by default, but provided by the `ajv-formats` package. If one of these formats is needed, you can specify `includeAjvFormats: true` in the options of `validateBody` or `validateQuery` like this:
+
+```ts
+// Body
+validateBody(event, schema, { includeAjvFormats: true })
+
+// Query
+validateQuery(event, schema, { includeAjvFormats: true })
+```
+
+Currently, only the following extended formats are supported for performance and security reasons:
+
+- date-time
+- time
+- date
+- email
+- uri
+- uri-reference
+
+These can be used by custom schemas with the `Type.Unsafe` method or with an inline schema:
+
+```ts
+const bodySchema = Type.Object({
+  optional: Type.Optional(Type.String()),
+  dateTime: Type.String({ format: 'date-time' })
+})
+validateBody(event, bodySchema, { includeAjvFormats: true })
+```
+
+## Development 💻
 
 - Clone this repository
 - Install dependencies using `pnpm install`

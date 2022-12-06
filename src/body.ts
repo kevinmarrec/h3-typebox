@@ -1,11 +1,12 @@
 import type { Static, TSchema } from '@sinclair/typebox'
 import { createError, H3Event, readBody } from 'h3'
 import { betterAjvErrors } from '@apideck/better-ajv-errors'
+import type { useValidatorOptions } from './utils'
 import { useValidator } from './utils'
 
-export async function validateBody<T extends TSchema> (event: H3Event, schema: T) {
+export async function validateBody<T extends TSchema> (event: H3Event, schema: T, options: useValidatorOptions = { includeAjvFormats: false }) {
   const body = await readBody(event)
-  const validate = useValidator().compile(schema)
+  const validate = useValidator(options).compile(schema)
 
   if (!validate(body)) {
     const betterErrors = betterAjvErrors({ schema, data: body, errors: validate.errors, basePath: 'body' })

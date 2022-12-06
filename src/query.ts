@@ -1,11 +1,12 @@
 import type { Static, TSchema } from '@sinclair/typebox'
 import { createError, getQuery, H3Event } from 'h3'
 import { betterAjvErrors } from '@apideck/better-ajv-errors'
+import type { useValidatorOptions } from './utils'
 import { useValidator } from './utils'
 
-export function validateQuery<T extends TSchema> (event: H3Event, schema: T) {
+export function validateQuery<T extends TSchema> (event: H3Event, schema: T, options: useValidatorOptions = { includeAjvFormats: false }) {
   const query = getQuery(event)
-  const validate = useValidator().compile(schema)
+  const validate = useValidator(options).compile(schema)
 
   if (!validate(query)) {
     const betterErrors = betterAjvErrors({ schema, data: query, errors: validate.errors, basePath: 'query' })
