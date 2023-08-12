@@ -1,6 +1,6 @@
 import Ajv from 'ajv'
 import addFormats from 'ajv-formats'
-import { TypeGuard } from '@sinclair/typebox/guard'
+import { TypeGuard } from '@sinclair/typebox'
 import { Value } from '@sinclair/typebox/value'
 
 export interface useValidatorOptions {

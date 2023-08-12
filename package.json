@@ -28,15 +28,15 @@
   },
   "dependencies": {
     "@apideck/better-ajv-errors": "^0.3.6",
-    "@sinclair/typebox": "^0.25.13",
-    "ajv": "^8.11.2",
+    "@sinclair/typebox": "^0.31.0",
+    "ajv": "^8.12.0",
     "ajv-formats": "^2.1.1",
-    "h3": "^1.0.2"
+    "h3": "^1.7.1"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "latest",
     "@types/supertest": "latest",
-    "@vitest/coverage-c8": "latest",
+    "@vitest/coverage-v8": "latest",
     "eslint": "latest",
     "standard-version": "latest",
     "supertest": "latest",
