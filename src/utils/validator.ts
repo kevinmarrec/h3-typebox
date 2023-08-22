@@ -61,7 +61,8 @@ export function useValidator (options?: useValidatorOptions) {
     return instanceWithFormats
   } else if (!instance) {
     instance = new Ajv({
-      keywords: ['kind', 'modifier']
+      keywords: ['kind', 'modifier'],
+      coerceTypes: options?.allowCoerceTypes
     })
   }
   return instance
