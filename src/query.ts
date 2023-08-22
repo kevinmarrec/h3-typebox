@@ -4,7 +4,7 @@ import { betterAjvErrors } from '@apideck/better-ajv-errors'
 import type { useValidatorOptions } from './utils'
 import { useValidator } from './utils'
 
-export function validateQuery<T extends TSchema> (event: H3Event, schema: T, options: useValidatorOptions = { includeAjvFormats: false }) {
+export function validateQuery<T extends TSchema> (event: H3Event, schema: T, options: useValidatorOptions = { includeAjvFormats: false, allowCoerceTypes: false }) {
   const query = getQuery(event)
   const validate = useValidator(options).compile(schema)
 
