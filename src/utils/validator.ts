@@ -4,7 +4,7 @@ import { TypeGuard } from '@sinclair/typebox/guard'
 import { Value } from '@sinclair/typebox/value'
 
 export interface useValidatorOptions {
-  includeAjvFormats: boolean,
+  includeAjvFormats: boolean
   allowCoerceTypes: boolean
 }
 
