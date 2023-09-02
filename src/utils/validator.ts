@@ -5,6 +5,7 @@ import { Value } from '@sinclair/typebox/value'
 
 export interface useValidatorOptions {
   includeAjvFormats: boolean
+  allowCoerceTypes: boolean
 }
 
 let instance: Ajv
@@ -35,7 +36,8 @@ export function useValidator (options?: useValidatorOptions) {
   if (options?.includeAjvFormats) {
     if (!instanceWithFormats) {
       instanceWithFormats = addFormats(new Ajv({
-        keywords: ['kind', 'modifier']
+        keywords: ['kind', 'modifier'],
+        coerceTypes: options?.allowCoerceTypes
       }), {
         mode: 'fast',
         formats: [
@@ -59,7 +61,8 @@ export function useValidator (options?: useValidatorOptions) {
     return instanceWithFormats
   } else if (!instance) {
     instance = new Ajv({
-      keywords: ['kind', 'modifier']
+      keywords: ['kind', 'modifier'],
+      coerceTypes: options?.allowCoerceTypes
     })
   }
   return instance
